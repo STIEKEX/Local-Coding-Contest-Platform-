@@ -154,8 +154,9 @@ app.get('/api/leaderboard', (req, res) => {
 
 // Start server
 const PORT = 5000;
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log('');
+
   console.log('🚀 ============================================');
   console.log('🚀  Backend Server Running!');
   console.log('🚀 ============================================');

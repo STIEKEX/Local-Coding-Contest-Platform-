@@ -1,3 +1,5 @@
+import { BACKEND_URL } from '../config';
+
 import React, { useState } from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 
@@ -26,7 +28,9 @@ export default function Register({ onRegister, onSwitchToLogin }) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://192.168.27.128:5000/api/auth/register', {
+     
+const response = await fetch(`${BACKEND_URL}/api/auth/register`, {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password })

@@ -1,3 +1,5 @@
+import { BACKEND_URL } from '../config';
+
 import React, { useEffect, useState } from 'react';
 import { Table, Container, Card } from 'react-bootstrap';
 import io from 'socket.io-client';
@@ -7,7 +9,9 @@ export default function Leaderboard() {
   
   useEffect(() => {
     // Try to connect to backend socket
-    const socket = io('http://192.168.27.128:5000');
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+const socket = io(BACKEND_URL);
+
 
     
     socket.on('connect', () => {
